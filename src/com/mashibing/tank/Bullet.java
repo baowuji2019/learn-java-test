@@ -1,49 +1,38 @@
 package com.mashibing.tank;
 
+import java.awt.Color;
 import java.awt.Graphics;
 
-public class Tank {
+public class Bullet {
+	private static final int SPEED = 10;
+	private static int WIDTH =30,HEIGHT = 30;
+	
 	private int x,y;
-	private Dir dir = Dir.DOWN;
-	private static final int SPEED = 5;
-	
-	public boolean isMoving() {
-		return moving;
-	}
-	public void setMoving(boolean moving) {
-		this.moving = moving;
-	}
-	private boolean moving = false;
+	private Dir dir;
 	
 	
-	
-	public Dir getDir() {
-		return dir;
-	}
-	public void setDir(Dir dir) {
-		this.dir = dir;
-	}
-	
-	public Tank(int x, int y, Dir dir) {
+	public Bullet(int x, int y, Dir dir) {
 		super();
 		this.x = x;
 		this.y = y;
 		this.dir = dir;
 	}
+	
 	public void paint(Graphics g) {
-		// TODO Auto-generated method stub
-        g.fillRect(x,y,50,50);
-        
-
+		Color c = g.getColor();
 		
-        
-        move();
+		g.setColor(Color.RED);
+		g.fillOval(x,y,WIDTH,HEIGHT);
+		g.setColor(c);
+		
+		move();
+		
 		
 		
 	}
+	
 	private void move() {
 		// TODO Auto-generated method stub
-		if (!moving) return;
 		
         switch(dir) {
         case LEFT:
