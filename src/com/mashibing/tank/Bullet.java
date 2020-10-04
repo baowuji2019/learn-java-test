@@ -9,16 +9,25 @@ public class Bullet {
 	
 	private int x,y;
 	private Dir dir;
+	private boolean live = true;
+	TankFrame tf = null;
 	
-	
-	public Bullet(int x, int y, Dir dir) {
+	public Bullet(int x, int y, Dir dir,TankFrame tf) {
 		super();
 		this.x = x;
 		this.y = y;
 		this.dir = dir;
+		this.tf = tf;
 	}
 	
 	public void paint(Graphics g) {
+		
+		if (!live) 
+			tf.bullets.remove(this);
+		{}
+		
+		
+		
 		Color c = g.getColor();
 		
 		g.setColor(Color.RED);
@@ -50,6 +59,8 @@ public class Bullet {
         	
          
         }
+        
+        if (x<0 || y < 0 || x>TankFrame.GAME_WIDTH || y>TankFrame.GAME_HEIGHT) live = false;
 		
 	}
 	

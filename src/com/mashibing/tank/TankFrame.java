@@ -5,6 +5,8 @@ import java.awt.Frame;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.ArrayList;
+import java.util.List;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.KeyAdapter;
@@ -15,8 +17,8 @@ public class TankFrame extends Frame {
     //private static final int SPEED = 10;
     
     Tank myTank = new Tank(200,200,Dir.DOWN,this);
-    Bullet b = new Bullet(300,300,Dir.DOWN);
-    
+    Bullet b = new Bullet(300,300,Dir.DOWN,this);
+    List<Bullet> bullets =new ArrayList<>();
     static final int GAME_WIDTH = 800 ,GAME_HEIGHT = 600;
     
     public TankFrame(){
@@ -41,10 +43,25 @@ public class TankFrame extends Frame {
         //System.out.println("paint");
        // x +=10;
         // y +=10;
+    	Color c = g.getColor();
+    	g.setColor(Color.black);	
+    	g.drawString("子弹的数量"+bullets.size(), 10, 60);
+    	g.setColor(c);
         
         myTank.paint(g);
-        b.paint(g);
+        
+      //改方法情况下，别的地方使用直接对list进行删除时，Iterator会抛出
+       //Exception in thread "AWT-EventQueue-0" java.util.ConcurrentModificationException
+        
+    //    for(Bullet b :bullets) { 
+    //    	b.paint(g);
+    //    }
+        
+        for (int i =0;i <bullets.size();i++) {
+        	bullets.get(i).paint(g);
+        }
        
+        
     }
     
     Image offScreenImage = null;
