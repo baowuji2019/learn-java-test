@@ -8,6 +8,10 @@ public class Tank {
 	private Dir dir = Dir.DOWN;
 	private static final int SPEED = 5;
 	
+	public static int WIDTH =ResourceMgr.TankD.getWidth();
+	public static int HEIGHT = ResourceMgr.TankD.getHeight();
+	
+	
 	public boolean isMoving() {
 		return moving;
 	}
@@ -94,8 +98,10 @@ public class Tank {
 	}
 	public void fire() {
 		// TODO Auto-generated method stub
+		int bx = this.x + Tank.WIDTH/2 - Bullet.WIDTH;
+		int by = this.y + Tank.HEIGHT/2 - Bullet.HEIGHT/2;
 
-		tf.bullets.add(new Bullet(this.x,this.y,this.dir,tf));
+		tf.bullets.add(new Bullet(bx,by,this.dir,tf));
 		
 	}
 	
