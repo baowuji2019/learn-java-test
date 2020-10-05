@@ -98,8 +98,8 @@ public class Tank {
 	}
 	public void fire() {
 		// TODO Auto-generated method stub
-		int bx = this.x + Tank.WIDTH/2 - Bullet.WIDTH;
-		int by = this.y + Tank.HEIGHT/2 - Bullet.HEIGHT/2;
+		int bx = this.x + Tank.WIDTH/2 - Bullet.WIDTH+4;
+		int by = this.y + Tank.HEIGHT/2 - Bullet.HEIGHT/2+4;
 
 		tf.bullets.add(new Bullet(bx,by,this.dir,tf));
 		

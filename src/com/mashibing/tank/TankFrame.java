@@ -74,7 +74,7 @@ public class TankFrame extends Frame {
     	}
     	Graphics goffScreen = offScreenImage.getGraphics();
     	Color c = goffScreen.getColor();
-    	goffScreen.setColor(Color.white);
+    	goffScreen.setColor(Color.black);
     	goffScreen.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
     	goffScreen.setColor(c);
     	paint(goffScreen);
