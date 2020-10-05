@@ -20,6 +20,9 @@ public class TankFrame extends Frame {
     //Bullet b = new Bullet(300,300,Dir.DOWN,this);
     List<Bullet> bullets =new ArrayList<>();
     List<Tank> tanks = new ArrayList<>();
+    Explode e = new Explode(100,100,this);
+    
+    
     static final int GAME_WIDTH = 800 ,GAME_HEIGHT = 600;
     
     public TankFrame(){
@@ -69,18 +72,14 @@ public class TankFrame extends Frame {
         
         //写循环检测子弹是否和tank相撞
         for(int i = 0;i <bullets.size();i++) {
-        	for (int j =0 ;j < tanks.size();j++) {
+        	for (int j =0 ;j < tanks.size();j++) {        		
+        		bullets.get(i).collideWith(tanks.get(j));        		
         		
-        		bullets.get(i).collideWith(tanks.get(j));
-        		
-        		
-        	}
-        	
-        	
+        	}       	
         	
         }
         
-        
+        e.paint(g);
        
         
     }
