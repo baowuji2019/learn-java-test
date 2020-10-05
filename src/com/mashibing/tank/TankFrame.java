@@ -16,7 +16,7 @@ public class TankFrame extends Frame {
     //Dir dir = Dir.DOWN;
     //private static final int SPEED = 10;
     
-    Tank myTank = new Tank(200,400,Dir.DOWN,this);
+    Tank myTank = new Tank(200,400,Dir.DOWN,Group.GOOd,this);
     //Bullet b = new Bullet(300,300,Dir.DOWN,this);
     List<Bullet> bullets =new ArrayList<>();
     List<Tank> tanks = new ArrayList<>();
