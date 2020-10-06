@@ -6,8 +6,8 @@ import java.util.Random;
 
 public class Tank {
 	private static final int SPEED = 2;
-	public static int WIDTH =ResourceMgr.TankD.getWidth();
-	public static int HEIGHT = ResourceMgr.TankD.getHeight();
+	public static int WIDTH =ResourceMgr.goodTankD.getWidth();
+	public static int HEIGHT = ResourceMgr.goodTankD.getHeight();
 	
 	private Random random = new Random();
 	
@@ -104,16 +104,16 @@ public class Tank {
 		switch(dir)	{
 		
         case LEFT:
-        	g.drawImage(ResourceMgr.TankL, x, y, null);
+        	g.drawImage(this.group == Group.GOOd ? ResourceMgr.goodTankL :ResourceMgr.badTankL , x, y, null);
         	break;
         case UP:
-        	g.drawImage(ResourceMgr.TankU, x, y, null);
+        	g.drawImage(this.group == Group.GOOd ? ResourceMgr.goodTankU :ResourceMgr.badTankU , x, y, null);
         	break;
         case RIGHT:
-        	g.drawImage(ResourceMgr.TankR, x, y, null);
+        	g.drawImage(this.group == Group.GOOd ? ResourceMgr.goodTankR :ResourceMgr.badTankR , x, y, null);
         	break;
         case DOWN:
-        	g.drawImage(ResourceMgr.TankD, x, y, null);
+        	g.drawImage(this.group == Group.GOOd ? ResourceMgr.goodTankD :ResourceMgr.badTankD , x, y, null);
         	break;
         	
 		
